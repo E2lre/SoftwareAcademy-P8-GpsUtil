@@ -1,0 +1,5 @@
+com.tourguide.gpsUtil
+com.tourguide.gpsUtil.controller
+com.tourguide.gpsUtil.controller.exceptions
+com.tourguide.gpsUtil.externalModule
+com.tourguide.gpsUtil.service

@@ -15,11 +15,19 @@ public class GpsUtilServiceImpl implements GpsUtilService {
     @Autowired
     private ExtModule extModule;
 
+    /**
+     * Give the user location for a user
+     * @param userId userId user UUID
+     * @return user location
+     */
     @Override
     public VisitedLocation getUserLocation(UUID userId) {
         return extModule.getUserLocation(userId);
     }
-
+    /**
+     * Give a list of all attractions
+     * @return list of all attractions
+     */
     @Override
     public List<Attraction> getAttractions() {
         return extModule.getAttractions();

@@ -25,32 +25,50 @@ public class GpsUtilControler {
     @Autowired
     private GpsUtilService gpsUtilService;
 
+    /**
+     * Give the user location for a user
+     * @param userId user UUID
+     * @return user location
+     * @throws UUIDException if user UUID is incorrect
+     */
     @GetMapping(value = "getUserLocation")
     @ResponseStatus(HttpStatus.OK)
     public VisitedLocation getUserLocation (@RequestParam UUID userId) throws UUIDException {
         try {
-            logger.info("Start getUserLocation for : " + userId.toString());
+            logger.debug("Start getUserLocation for : " + userId.toString());
 
             return gpsUtilService.getUserLocation(userId);
         } catch (Exception e){
             throw new UUIDException("UUID input error : userId = " + userId + "  message :" + e.getMessage());
         }
     }
+
+    /**
+     * Give the user location for a user
+     * @param userId user UUID in string format
+     * @return user location
+     * @throws UUIDException if user UUID is incorrect
+     */
     @GetMapping(value = "getUserLocationV2")
     @ResponseStatus(HttpStatus.OK)
     public VisitedLocation getUserLocationV2 (@RequestParam String userId) throws UUIDException {
         try {
-            logger.info("Start getUserLocation for : " + userId);
+            logger.debug("Start getUserLocationV2 for : " + userId);
             UUID userIdUUID = UUID.fromString(userId);
             return gpsUtilService.getUserLocation(userIdUUID);
         } catch (Exception e){
             throw new UUIDException("UUID input error : userId = " + userId + "  message :" + e.getMessage());
         }
     }
+
+    /**
+     * Give a list of all attractions
+     * @return list of all attractions
+     */
     @GetMapping(value = "getAttractions")
     @ResponseStatus(HttpStatus.OK)
     public List<Attraction> getAttractions () {
-        logger.info("Start getAttractions");
+        logger.debug("Start getAttractions");
         return gpsUtilService.getAttractions();
     }
 }
