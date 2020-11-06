@@ -35,7 +35,8 @@ public class GpsUtilControler {
     @ResponseStatus(HttpStatus.OK)
     public VisitedLocation getUserLocation (@RequestParam UUID userId) throws UUIDException {
         try {
-            logger.debug("Start getUserLocation for : " + userId.toString());
+            //logger.debug("Start getUserLocation for : " + userId.toString());
+            logger.info("Start getUserLocation for : " + userId.toString());
 
             return gpsUtilService.getUserLocation(userId);
         } catch (Exception e){
@@ -53,7 +54,8 @@ public class GpsUtilControler {
     @ResponseStatus(HttpStatus.OK)
     public VisitedLocation getUserLocationV2 (@RequestParam String userId) throws UUIDException {
         try {
-            logger.debug("Start getUserLocationV2 for : " + userId);
+            //logger.debug("Start getUserLocationV2 for : " + userId);
+            logger.info("Start getUserLocationV2 for : " + userId);
             UUID userIdUUID = UUID.fromString(userId);
             return gpsUtilService.getUserLocation(userIdUUID);
         } catch (Exception e){
@@ -68,7 +70,8 @@ public class GpsUtilControler {
     @GetMapping(value = "getAttractions")
     @ResponseStatus(HttpStatus.OK)
     public List<Attraction> getAttractions () {
-        logger.debug("Start getAttractions");
+        //logger.debug("Start getAttractions");
+        logger.info("Start getAttractions");
         return gpsUtilService.getAttractions();
     }
 }
