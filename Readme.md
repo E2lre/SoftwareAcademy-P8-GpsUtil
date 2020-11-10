@@ -5,14 +5,15 @@ This app use SPRINT BOOT, FeignClient.
 
 ## Getting Started
 
-- Endpoint : http://localhost:8082/
+- Endpoint : http://localhost:8082/...
+- Or : http://gpsutil:8082/...
 
 ## Prerequisites
 
 - Java 1.8 or later
 - Spring Boot 2.2.6
 - Gradle 2.2.5
-- Docker (Optional)
+- Docker 2.5.0.0 (Optional)
 
 # Installation
 
@@ -24,13 +25,13 @@ To start the application whitout docker start sub-micro-service with or without 
 
 ### With Docker
 Docker construction in project directory :  
-- docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/gs-spring-boot-docker-gpsutil .
+- docker build --build-arg JAR_FILE=build/libs/*.jar -t gpsutil .
 
 Docker execution : 
-- docker run -p 8082:8082 --name GpsUtil springio/gs-spring-boot-docker-gpsutil
+- docker run -p 8082:8082 --name GpsUtil gpsutil
 
 or
-- docker run -p 8082:8082 --name GpsUtil --cpus="1" springio/gs-spring-boot-docker-gpsutil
+- docker run -p 8082:8082 --name GpsUtil --cpus="1" gpsutil
 # Architecture Diagram
 ![ScreenShot](Architecture.png)
 
